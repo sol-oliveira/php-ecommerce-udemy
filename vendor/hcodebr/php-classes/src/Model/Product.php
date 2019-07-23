@@ -15,8 +15,7 @@ class Product extends Model {
       return $sql->select("SELECT * FROM tb_products ORDER BY desproduct");
 	}
 
-	public static function checkList($list)
-	{
+	public static function checkList($list){
 		foreach ($list as &$row) {
 			
 			$p = new Product();
@@ -47,10 +46,9 @@ class Product extends Model {
 
 		$sql = new Sql();
 
-		$results = $sql->select("SELECT * FROM tb_products WHERE
-			idproduct = :idproduct",[
-			':idproduct'=>$idproduct
-		]);		
+		$results = $sql->select("SELECT * FROM tb_products WHERE idproduct = :idproduct",[
+			":idproduct"=>$idproduct
+		]);	
 		
 		$this->setData($results[0]);
 	}
@@ -64,8 +62,7 @@ class Product extends Model {
 	    ]);	   
 	}	
 
-	public function checkPhoto()
-	{
+	public function checkPhoto(){
 		if (file_exists(
 			$_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 
 			"res" . DIRECTORY_SEPARATOR . 
@@ -81,15 +78,13 @@ class Product extends Model {
 		return $this->setdesphoto($url);
 	}	
 
-	public function getValues()
-	{
+	public function getValues(){
 		$this->checkPhoto();
 		$values = parent::getValues();
 		return $values;
 	}	
 
-	public function setPhoto($file)
-	{
+	public function setPhoto($file){
 		$extension = explode('.', $file['name']);
 		$extension = end($extension);
 		switch ($extension) {
@@ -115,9 +110,8 @@ class Product extends Model {
 		$this->checkPhoto();
 	}
 
-
-	public function getFromURL($desurl)
-	{
+	public function getFromURL($desurl){
+		
 		$sql = new Sql();
 		
 		$rows = $sql->select("SELECT * FROM tb_products WHERE desurl = :desurl LIMIT 1", [
@@ -126,8 +120,7 @@ class Product extends Model {
 		$this->setData($rows[0]);
 	}
 
-	public function getCategories()
-	{
+	public function getCategories(){
 		$sql = new Sql();
 
 	/* var_dump("SELECT * FROM tb_categories a INNER JOIN tb_productscategories b ON a.idcategory = b.idcategory WHERE b.idproduct = :idproduct = ".$this->getidproduct());

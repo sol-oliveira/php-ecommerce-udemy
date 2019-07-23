@@ -9,7 +9,7 @@
 								iPhone <span class="primary">6 <strong>Plus</strong></span>
 							</h2>
 							<h4 class="caption subtitle">Dual SIM</h4>
-							<a class="caption button-radius" href="#"><span class="icon"></span>Comprar</a>
+							<a class="caption button-radius" href=""><span class="icon"></span>Comprar</a>
 						</div>
 					</li>
 					<li><img src="/res/site/img/h4-slide2.png" alt="Slide">
@@ -89,8 +89,8 @@
                                 <div class="product-f-image">
                                     <img src="<?php echo htmlspecialchars( $value1["desphoto"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" alt="">
                                     <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Comprar</a>
-                                        <a href="/products/{value.desurl}" class="view-details-link"><i class="fa fa-link"></i>Ver Detalhes</a>
+                                        <a href="/cart/<?php echo htmlspecialchars( $value1["idproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/add" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Comprar</a>
+                                        <a href="/products/<?php echo htmlspecialchars( $value1["desurl"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="view-details-link"><i class="fa fa-link"></i>Ver Detalhes</a>
                                     </div>
                                 </div>
                                 
